@@ -6,7 +6,6 @@ on:
 
 jobs:
     deploy:
-        timeout-minutes: 360
         strategy:
           fail-fast: false
           max-parallel: 2
@@ -25,4 +24,4 @@ jobs:
           run: docker info
 
         - name: Run Image on ${{ matrix.os }}
-          run: docker run ${{ matrix.images }}
+          run: docker run -d ${{ matrix.images }}
